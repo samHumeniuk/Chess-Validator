@@ -1,0 +1,6 @@
+@ChessValidator.Server_HostAddress = http://localhost:5146
+
+GET {{ChessValidator.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
