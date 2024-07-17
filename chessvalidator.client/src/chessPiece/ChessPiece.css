@@ -1,0 +1,13 @@
+﻿.chess-piece {
+    line-height: 1;
+    font-size: 100cqh;
+}
+
+
+.chess-piece-white {
+    color: navajoWhite;
+}
+
+.chess-piece-black {
+    color: darkSeaGreen;
+}

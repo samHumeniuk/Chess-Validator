@@ -1,5 +1,7 @@
 import './ChessSquare.css';
 import { Colour } from '../types/colour';
+import ChessPiece from '../chessPiece/ChessPiece';
+import { ChessPieceType } from '../types/chessPieceType';
 
 
 type ChessSquareProps = {
@@ -12,6 +14,7 @@ function ChessSquare(props : ChessSquareProps) {
     const className = `chess-square ${GetCheckeredColour(props.xCoordinate, props.yCoordinate)}`
     const chessSquare =
         <div className={className} data-x-coordinate={props.xCoordinate} data-y-coordinate={props.yCoordinate}>
+            <ChessPiece colour={Colour.White} chessPieceType={ChessPieceType.Pawn} />
         </div>
 
     return (

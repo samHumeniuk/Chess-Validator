@@ -2,12 +2,15 @@
 .chess-square {
     width: 100px;
     height: 100px;
+    /*needed so that the font size of the pieces can adjust based on the size of the squares*/
+    container-type: size;
+    resize: horizontal;
 }
 
 .chess-square.white {
-    background-color: ghostwhite;
+    background-color:lightgrey;
 }
 
 .chess-square.black {
-    background-color: silver;
+    background-color: grey;
 }
