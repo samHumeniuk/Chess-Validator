@@ -1,12 +1,13 @@
 import './ChessSquare.css';
 import { Colour } from '../types/colour';
 import ChessPiece from '../chessPiece/ChessPiece';
-import { ChessPieceType } from '../types/chessPieceType';
+import { NullableChessPieceProps } from '../types/chessPieceProps';
 
 
 type ChessSquareProps = {
     xCoordinate: number,
     yCoordinate: number,
+    chessPieceProps: NullableChessPieceProps
 }
 
 function ChessSquare(props : ChessSquareProps) {
@@ -14,7 +15,7 @@ function ChessSquare(props : ChessSquareProps) {
     const className = `chess-square ${GetCheckeredColour(props.xCoordinate, props.yCoordinate)}`
     const chessSquare =
         <div className={className} data-x-coordinate={props.xCoordinate} data-y-coordinate={props.yCoordinate}>
-            <ChessPiece colour={Colour.White} chessPieceType={ChessPieceType.Pawn} />
+            {props.chessPieceProps && <ChessPiece {...props.chessPieceProps} />}
         </div>
 
     return (
