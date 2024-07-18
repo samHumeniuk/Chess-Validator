@@ -1,6 +1,7 @@
 /*import { useEffect, useState } from 'react';*/
 import './App.css';
 import ChessBoard from './chessBoard/ChessBoard';
+import { AppProvider } from './contexts/AppContext';
 
 //interface Forecast {
 //    date: string;
@@ -17,9 +18,9 @@ function App() {
     //}, []);
 
     return (
-        <div>
-            <ChessBoard/>
-        </div>
+        <AppProvider>
+            <ChessBoard />
+        </AppProvider>
     );
 
     //async function populateWeatherData() {
