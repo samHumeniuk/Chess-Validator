@@ -1,6 +1,7 @@
 ﻿.chess-piece {
     line-height: 1;
     font-size: 100cqh;
+    cursor: pointer;
 }
 
 
