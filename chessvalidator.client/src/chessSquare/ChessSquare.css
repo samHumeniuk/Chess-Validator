@@ -7,10 +7,15 @@
     resize: horizontal;
 }
 
-.chess-square.white {
-    background-color:lightgrey;
+.chess-square-highlighted
+{
+    filter: brightness(50%);
 }
 
-.chess-square.black {
+.chess-square-white {
+    background-color: lightgrey;
+}
+
+.chess-square-black {
     background-color: grey;
 }
