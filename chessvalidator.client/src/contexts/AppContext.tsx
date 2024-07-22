@@ -1,12 +1,15 @@
 import { createContext } from "react";
 import ChessBoardSetupService from "../services/ChessBoardSetupService";
+import ChessMoveValidatorService from "../services/ChessMoveValidatorService";
 
 type Services = {
     chessBoardSetupService: ChessBoardSetupService
+    chessMoveValidatorService: ChessMoveValidatorService
 }
 
 const services = {
     chessBoardSetupService: new ChessBoardSetupService(),
+    chessMoveValidatorService: new ChessMoveValidatorService(),
 };
 
 interface AppContextType {

@@ -2,9 +2,11 @@
 import { createContext, MouseEventHandler, useContext, useState } from 'react';
 import ChessSquare from '../chessSquare/ChessSquare';
 import './ChessBoard.css';
-import { ChessPieceProps } from '../types/chessPieceProps';
 import { AppContext } from '../contexts/AppContext';
 import { Coordinate, NullableCoordinate } from '../types/coordinate';
+import { ChessPieceMove } from '../types/chessPieceMove';
+import { ChessMoveProposal } from '../types/chessMoveProposal';
+import { ChessBoardData } from '../types/chessBoardData';
 
 
 type ChessBoardProps = {
@@ -12,7 +14,6 @@ type ChessBoardProps = {
     height?: number
 }
 
-type NullableChessPieceProps = ChessPieceProps | null
 
 export const CurrentSelectedSquareContext = createContext<NullableCoordinate>(null);
 
@@ -20,7 +21,7 @@ function ChessBoard({ height = 8, width = 8 }: ChessBoardProps) {
 
     const { services } = useContext(AppContext);
 
-    const [chessPieces, _] = useState<NullableChessPieceProps[][]>(createChessBoard);
+    const [chessBoardData, _] = useState<ChessBoardData>(createChessBoard);
 
     const [currentSelectedSquare, setCurrentSelectedSquare] = useState<NullableCoordinate>(null);
 
@@ -31,6 +32,9 @@ function ChessBoard({ height = 8, width = 8 }: ChessBoardProps) {
         var coordinate: Coordinate = { xCoordinate: xCoordinate, yCoordinate: yCoordinate };
 
         if (currentSelectedSquare) {
+            const move: ChessPieceMove = { startCoordinate: currentSelectedSquare, endCoordinate: coordinate }
+            const moveProposal: ChessMoveProposal = { chessBoardData: chessBoardData, chessPieceMove: move }
+            services.chessMoveValidatorService.TryMove(moveProposal);
             setCurrentSelectedSquare(null);
         }
         else {
@@ -52,7 +56,7 @@ function ChessBoard({ height = 8, width = 8 }: ChessBoardProps) {
         return (
             <CurrentSelectedSquareContext.Provider value={currentSelectedSquare}>
                 <div onClick={handleClick} className="chess-row">{[...Array(width)].map((_, x) =>
-                    <ChessSquare xCoordinate={x} yCoordinate={yCoordinate} key={`${x},${yCoordinate}`} chessPieceProps={chessPieces[x][yCoordinate]} />)}
+                    <ChessSquare xCoordinate={x} yCoordinate={yCoordinate} key={`${x},${yCoordinate}`} chessPieceProps={chessBoardData[x][yCoordinate]} />)}
                 </div>
             </CurrentSelectedSquareContext.Provider>)
     }
