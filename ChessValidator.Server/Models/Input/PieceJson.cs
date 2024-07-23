@@ -3,19 +3,19 @@ using System.Text.Json.Serialization;
 
 namespace ChessValidator.Server.Models.Input
 {
-    public class Piece
+    public class PieceJson
     {
-        public Piece(Colour colour, ChessPieceType chessPieceType)
+        public PieceJson(ColourJson colour, ChessPieceTypeJson chessPieceType)
         {
             Colour = colour;
             ChessPieceType = chessPieceType;
         }
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public Colour Colour { get; set; }
+        public ColourJson Colour { get; set; }
 
 
         [JsonConverter(typeof(JsonStringEnumConverter))]
-        public ChessPieceType ChessPieceType { get; set; }
+        public ChessPieceTypeJson ChessPieceType { get; set; }
     }
 }

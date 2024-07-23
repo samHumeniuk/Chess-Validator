@@ -1,6 +1,6 @@
 ﻿namespace ChessValidator.Server.Models.Input
 {
-    public enum Colour
+    public enum ColourJson
     {
         White,
         Black

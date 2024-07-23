@@ -1,4 +1,5 @@
-using ChessValidator.Server.Services;
+using ChessValidator.Server.Mapping_Profiles;
+using ChessValidator.Services;
 using Microsoft.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<ChessMoveValidator, ChessMoveValidator>();
+
+builder.Services.AddAutoMapper(typeof(InputToModelMappingProfile));
 
 var app = builder.Build();
 

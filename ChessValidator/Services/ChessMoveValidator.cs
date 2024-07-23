@@ -1,6 +1,7 @@
-﻿using ChessValidator.Server.Models.Input;
+﻿
+using ChessValidator.Models;
 
-namespace ChessValidator.Server.Services
+namespace ChessValidator.Services
 {
     public class ChessMoveValidator
     {

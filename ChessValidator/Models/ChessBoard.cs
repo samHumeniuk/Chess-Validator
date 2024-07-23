@@ -1,4 +1,6 @@
-﻿namespace ChessValidator.Server.Models.Input
+﻿using ChessValidator.Models.Pieces;
+
+namespace ChessValidator.Models
 {
     public class ChessBoard
     {

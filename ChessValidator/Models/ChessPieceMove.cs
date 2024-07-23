@@ -1,4 +1,4 @@
-﻿namespace ChessValidator.Server.Models.Input
+﻿namespace ChessValidator.Models
 {
     public class ChessPieceMove
     {

@@ -2,7 +2,7 @@
 
 namespace ChessValidator.Server.Models.Input
 {
-    public enum ChessPieceType
+    public enum ChessPieceTypeJson
     {
         Pawn,
         Bishop,
