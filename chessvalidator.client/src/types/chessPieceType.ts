@@ -1,6 +1,6 @@
 enum ChessPieceType {
     Pawn = "pawn",
-    Bishop = "black",
+    Bishop = "bishop",
     Knight = "knight",
     Rook = "rook",
     Queen = "queen",
