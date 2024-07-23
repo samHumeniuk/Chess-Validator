@@ -1,3 +1,4 @@
+import { ChessBoardData } from "../types/chessBoardData";
 import { ChessPieceProps, NullableChessPieceProps } from "../types/chessPieceProps";
 import { ChessPieceType } from "../types/chessPieceType";
 import { Colour } from "../types/colour";
@@ -98,7 +99,7 @@ class ChessBoardSetupService {
         let blackFrontRow = this.createFrontRow(Colour.Black);
         let blackBackRow = this.createBackRow(Colour.Black);
 
-        let chessBoard = [
+        let pieces = [
             blackBackRow,
             blackFrontRow,
             this.createEmptyRow(),
@@ -108,7 +109,10 @@ class ChessBoardSetupService {
             whiteFrontRow,
             whiteBackRow,
         ];
-        return chessBoard;
+        const chessBoard: ChessBoardData = {
+            pieces: pieces
+        };
+        return chessBoard
 
     }
 

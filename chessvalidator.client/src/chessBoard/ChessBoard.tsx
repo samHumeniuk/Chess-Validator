@@ -32,8 +32,8 @@ function ChessBoard({ height = 8, width = 8 }: ChessBoardProps) {
         var coordinate: Coordinate = { xCoordinate: xCoordinate, yCoordinate: yCoordinate };
 
         if (currentSelectedSquare) {
-            const move: ChessPieceMove = { startCoordinate: currentSelectedSquare, endCoordinate: coordinate }
-            const moveProposal: ChessMoveProposal = { chessBoardData: chessBoardData, chessPieceMove: move }
+            const move: ChessPieceMove = { fromPosition: currentSelectedSquare, toPosition: coordinate }
+            const moveProposal: ChessMoveProposal = { chessBoard: chessBoardData, chessPieceMove: move }
             services.chessMoveValidatorService.TryMove(moveProposal);
             setCurrentSelectedSquare(null);
         }
@@ -56,7 +56,7 @@ function ChessBoard({ height = 8, width = 8 }: ChessBoardProps) {
         return (
             <CurrentSelectedSquareContext.Provider value={currentSelectedSquare}>
                 <div onClick={handleClick} className="chess-row">{[...Array(width)].map((_, x) =>
-                    <ChessSquare xCoordinate={x} yCoordinate={yCoordinate} key={`${x},${yCoordinate}`} chessPieceProps={chessBoardData[x][yCoordinate]} />)}
+                    <ChessSquare xCoordinate={x} yCoordinate={yCoordinate} key={`${x},${yCoordinate}`} chessPieceProps={chessBoardData.pieces[x][yCoordinate]} />)}
                 </div>
             </CurrentSelectedSquareContext.Provider>)
     }

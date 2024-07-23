@@ -1,7 +1,10 @@
 import { NullableChessPieceProps } from "./chessPieceProps";
 
 
-type ChessBoardData = NullableChessPieceProps[][];
+type ChessBoardData =
+{    
+    pieces : NullableChessPieceProps[][];
+}
 
 
 export { type ChessBoardData };

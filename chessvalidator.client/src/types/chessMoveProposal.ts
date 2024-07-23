@@ -2,7 +2,7 @@ import { ChessBoardData } from "./chessBoardData";
 import { ChessPieceMove } from "./chessPieceMove";
 
 type ChessMoveProposal = {
-    chessBoardData: ChessBoardData,
+    chessBoard: ChessBoardData,
     chessPieceMove: ChessPieceMove
 }
 

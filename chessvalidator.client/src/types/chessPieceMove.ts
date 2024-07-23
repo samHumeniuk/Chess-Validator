@@ -1,8 +1,8 @@
 import { Coordinate } from "./coordinate";
 
 type ChessPieceMove = {
-    startCoordinate: Coordinate,
-    endCoordinate: Coordinate
+    fromPosition: Coordinate,
+    toPosition: Coordinate
 }
 
 
